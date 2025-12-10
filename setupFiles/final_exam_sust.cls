@@ -77,9 +77,10 @@ mathfontname=mathsf]{mhchem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \footer
-  {\textit{\tiny {\deptNameShort{},~\institutionNameShort{}}}} % Left
-  {\textit{\tiny \examDate{}}}                                 % Center
-  {\textit{\tiny Page \thepage\ of \pageref{LastPage}}}        % Right
+  %{\textit{\tiny {\deptNameShort{},~\institutionNameShort{}}}} % Left
+  {\textit{\tiny {\teacherUniqueID}}} 							% Left
+  {\textit{\tiny \examDate{}}}                                  % Center
+  {\textit{\tiny Page \thepage\ of \pageref{LastPage}}}         % Right
 
 
 
