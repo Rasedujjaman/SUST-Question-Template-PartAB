@@ -8,14 +8,25 @@
 \begin{solution}
 	
 \end{solution}	
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
-\part[4] Suppose you have 3 friends. Design an alarm which will ring when more than one friend come. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \sisetup{per-mode = symbol} % this will produce unit like : mV/ps
+\part[4] A transmission line has the following per-unit length parameters: \(L = \SI{0.5}{\micro\henry\per\meter}\), \(C = \SI{200}{\pico\farad\per\meter}\), \(R =  \SI{4}{\ohm\per\meter} \) and \( G = \SI{0.02}{\siemens\per\meter} \). Calculate the propagation constant and characteristics impedance of this line. If the line is \SI{30}{\centi\meter} long, what is the attenuation in \SI{}{\deci\bel}.
 
 \begin{solution}
 	
 \end{solution}		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
-\part[2\half]Draw the symbol and truth table of EX-OR gate \& EX-NOR gate.
+\part[2\half] If you only want the unit as symbol mode like  \(R = {\sisetup{per-mode = symbol} \SI{4}{\ohm\per\meter} }\) instead of the conventional unit  \(R =  \SI{4}{\ohm\per\meter} \), wrap the unit in braces: as shown below.
+
+\begin{verbatim}
+{
+\sisetup{per-mode = symbol}
+\si{\milli\volt\per\pico\second}
+}
+\end{verbatim}
+
 
 \begin{solution}
 	

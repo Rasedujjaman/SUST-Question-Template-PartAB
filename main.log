@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.12.3)  18 DEC 2025 11:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.1.6)  26 FEB 2026 18:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1434,7 +1434,7 @@ Package: chemgreek 2020/01/16 v1.1a interface for upright Greek letters for use
 \mhchem@option@minustextsidebearingright=\dimen359
 )
 Package caption Info: Option `figurename' requires the `newfloat' package on in
-put line 89.
+put line 91.
 
 (/usr/share/texmf-dist/tex/latex/newfloat/newfloat.sty
 Package: newfloat 2023/10/01 v1.2 Defining new floating environments (AR)
@@ -1645,10 +1645,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 57200 strings out of 475095
- 1494892 string characters out of 5765553
+ 57202 strings out of 475095
+ 1494952 string characters out of 5765554
  2325658 words of memory out of 5000000
- 79566 multiletter control sequences out of 15000+600000
+ 79568 multiletter control sequences out of 15000+600000
  567256 words of font info for 66 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  117i,15n,121p,726b,1367s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1661,14 +1661,15 @@ usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/cm-super/sfrm1095.pfb>
-Output written on main.pdf (4 pages, 220291 bytes).
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
+1095.pfb>
+Output written on main.pdf (4 pages, 228936 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
