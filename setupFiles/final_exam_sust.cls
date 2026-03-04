@@ -3,7 +3,7 @@
 \LoadClass[legalpaper,11pt,addpoints]{exam} % addpoints is required
 
 %\RequirePackage[margin = 2cm]{geometry}
-\RequirePackage[top=0.5in, bottom=1.6cm, left=1in, right= 1in]{geometry}
+\RequirePackage[top=0.8in, bottom=1.6cm, left=1in, right= 1in]{geometry}
 
 
 %\RequirePackage{pageslts}
