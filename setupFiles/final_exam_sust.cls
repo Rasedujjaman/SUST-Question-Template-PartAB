@@ -25,6 +25,7 @@
 \RequirePackage{subfig}
 \RequirePackage{amsmath}
 \RequirePackage[]{enumerate}
+\RequirePackage{amssymb}
 \RequirePackage{latexsym}
 \RequirePackage{enumitem}
 \RequirePackage{float}
@@ -38,6 +39,8 @@
 \RequirePackage[euler]{textgreek}
 \RequirePackage{pgfplots}
 \RequirePackage{xstring}
+
+\RequirePackage[en-US]{datetime2}
 
 
 \RequirePackage{tabularx}

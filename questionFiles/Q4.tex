@@ -10,42 +10,48 @@
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
-	% Paths, nodes and wires:
-	\draw node[npn] (N1) at (6, 4) {} node[anchor=west] at ([xshift=0.9cm]N1.east){$\beta = 50$};
-	\draw (6, 7) to[american resistor, l^ ={\parbox{1cm}{\raggedright $R_C$ \\ $2.2~k\Omega$}}] (6, 4.77);
-	\draw (5.16, 4) -- (2, 4);
-	\draw (3, 7) to[american resistor, l^ ={\parbox{1cm}{\raggedright $R_B$ \\ $240~k\Omega$}}] (3, 4);
-	\draw (3, 7) -- (6, 7);
-	\draw node[circ] at (4.51, 7) {};
-	\draw (4.5, 7) -| (4.5, 7.5);
-	\draw node[ocirc] (N2) at (4.5, 7.5) {} node[anchor=south] at (N2.north){$V_{CC} = +12~V$};
-	\draw (7.316, 4.77) to[curved capacitor, l={$C_2$}, label distance=0.02cm] (10.316, 4.8);
-	\draw (2, 4) to[curved capacitor, l_={$C_1$}, label distance=0.02cm] (0, 4);
-	\draw node[ground] at (6, 3.23) {};
-	\draw node[ocirc] (N3) at (0, 4) {} node[anchor=east] at (N3.west){$ac~input$};
-	\draw node[ocirc] (N4) at (10.316, 4.8) {} node[anchor=west] at (N4.east){$ac~output$};
-	\draw (6, 4.77) -- (7.316, 4.77);
-	\draw node[circ] at (3, 4) {};
-	\draw node[circ, xscale=1.13, yscale=1.13] (N5) at (6, 4.77) {} node[anchor=north west] at ([xshift=-0.07cm, yshift=0.07cm]N5.east){$+$};
+\begin{axis}[
+    width=10cm,
+    height=12cm,
+    xmin=0, xmax=20,
+    ymin=0, ymax=12,
+    % Horizontal labels at 0, 2, 4... 20
+    xtick={0,2,4,6,8,10,12,14,16,18,20},
+    % Vertical labels at 0, 2, 4... 12
+    ytick={0,2,4,6,8,10,12},
+    % NO extra vertical lines (only at the 2-unit marks)
+    minor x tick num=0,
+    % EXTRA horizontal lines (adds 1 line between the 2-unit marks)
+    minor y tick num=1,
+    % Grid settings
+    grid=both,
+    % Make all grid lines look the same to match the photo
+    grid style={line width=0.5pt, draw=black!70},
+    % Axis labels
+    xlabel={P.S.M. $\longrightarrow$},
+    ylabel={Operating time (Seconds) $\longrightarrow$},
+    % Visual formatting
+    tick align=outside,
+    axis lines=box,
+    enlargelimits=false,
+    samples=200
+]
 
-	% Label V_CE as an arc with arrows on both sides:
-	\draw[<->] (6.3, 4.4) arc[start angle=90, end angle=-90, radius=0.4] node[midway, left] {$V_{CE}$};
-	
-	% Current I_B (Base Current) - Arrow towards base:
-	\draw[->] (4, 4.2) -- (5.2, 4.2) node[midway, above] {$I_B$};
+% The IDMT characteristic curve function
+\addplot[
+    domain=2.1:20, 
+    smooth, 
+    thick, 
+    black
+] {30/x}; 
 
-	% Current I_C (Collector Current) - Arrow down towards transistor:
-	\draw[->] (5.7, 6.5) -- (5.7, 5.2) node[midway, left] {$I_C$};
-	
-	% Label capacitors with 10µF:
-	\node at (1, 3) {10$\mu$F}; % Label for C1 (on the left capacitor)
-	\node at (9.316, 4) {10$\mu$F}; % Label for C2 (on the right capacitor)
-	
-	
+% The dot at PSM=10, Time=3
+\addplot[only marks, mark=*, mark size=2.5pt] coordinates {(10,3)};
 
+\end{axis}
 \end{tikzpicture}
 \caption{}
-\label{fig:ckt-bjt-fixed-bias}
+\label{fig:graph}
 \end{figure}
 
 

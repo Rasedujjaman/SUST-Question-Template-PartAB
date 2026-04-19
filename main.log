@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.4)  10 MAR 2026 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.29)  10 APR 2026 17:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1635,21 +1635,9 @@ Overfull \hbox (26.2225pt too wide) in paragraph at lines 14--84
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
 /enc/dvips/cm-super/cm-super-ts1.enc} <./Figures/Fig11.15_ElectricCircuit_Sadik
-uPg446_3E.png>]) (./questionFiles/Q3OR.tex) [2] (./questionFiles/Q4.tex
-Overfull \hbox (1.92593pt too wide) in paragraph at lines 15--15
-[]$\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 2 \OML/cmm/m/it/
-10.95 k\OT1/cmr/m/n/10.95 
-$  
- []
-
-
-Overfull \hbox (4.35927pt too wide) in paragraph at lines 17--17
-[]$\OT1/cmr/m/n/10.95 240 \OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 
-$  
- []
-
-) (./questionFiles/Q5.tex [3]) (./questionFiles/Q6.tex)
-(./questionFiles/Q6OR.tex) (./questionFiles/givenFormula.tex) [4]
+uPg446_3E.png>]) (./questionFiles/Q3OR.tex) [2] (./questionFiles/Q4.tex)
+(./questionFiles/Q5.tex [3]) (./questionFiles/Q6.tex) (./questionFiles/Q6OR.tex
+) (./questionFiles/givenFormula.tex) [4]
 This exam contains 6 questions with 25 parts, 4 subparts, and 0 subsubparts.
 This exam has a total of 67 and a half points.
 This exam has a total of 0 bonus points.
@@ -1666,13 +1654,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 58008 strings out of 469439
- 1518621 string characters out of 5469266
- 2375184 words of memory out of 5000000
- 86030 multiletter control sequences out of 15000+600000
+ 58252 strings out of 469439
+ 1525560 string characters out of 5469265
+ 2371486 words of memory out of 5000000
+ 86274 multiletter control sequences out of 15000+600000
  636140 words of font info for 70 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 117i,15n,121p,726b,1366s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,15n,121p,726b,2303s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/pub
@@ -1687,7 +1675,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
 1095.pfb>
-Output written on main.pdf (4 pages, 229024 bytes).
+Output written on main.pdf (4 pages, 234701 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream
