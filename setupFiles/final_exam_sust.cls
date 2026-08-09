@@ -6,6 +6,12 @@
 \RequirePackage[top=0.8in, bottom=1.6cm, left=1in, right= 1in]{geometry}
 
 
+% Load package and hide seconds/zone calculations
+\RequirePackage[showzone=false, showseconds=false]{datetime2}
+
+
+
+
 %\RequirePackage{pageslts}
 \RequirePackage{advdate}
 \RequirePackage{verbatim}
@@ -40,7 +46,6 @@
 \RequirePackage{pgfplots}
 \RequirePackage{xstring}
 
-\RequirePackage[en-US]{datetime2}
 
 
 \RequirePackage{tabularx}
