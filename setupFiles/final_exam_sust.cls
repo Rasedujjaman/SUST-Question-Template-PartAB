@@ -1,127 +1,110 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{final_exam_sust}
-\LoadClass[legalpaper,11pt,addpoints]{exam} % addpoints is required
+\ProvidesClass{final_exam_sust}[2026/08/21 Optimized Custom Exam Class for SUST]
 
-%\RequirePackage[margin = 2cm]{geometry}
-\RequirePackage[top=0.8in, bottom=1.6cm, left=1in, right= 1in]{geometry}
+% Load base class
+\LoadClass[legalpaper, 11pt, addpoints]{exam}
 
-
-% Load package and hide seconds/zone calculations
-\RequirePackage[showzone=false, showseconds=false]{datetime2}
-
-
-
-
-%\RequirePackage{pageslts}
-\RequirePackage{advdate}
-\RequirePackage{verbatim}
-\RequirePackage[latin1]{inputenc}
-\RequirePackage{tikz}
-\RequirePackage{float}
-\RequirePackage{fancyvrb}
+% --- Page Geometry & Layout ---
+\RequirePackage[top=0.8in, bottom=1.6cm, left=1in, right=1in]{geometry}
 \RequirePackage{changepage}
-
-\RequirePackage{circuitikz} %% To draw electric circuit diagram
-\RequirePackage{multirow}
-\RequirePackage{pgfplots}
 \RequirePackage{multicol}
+\RequirePackage{lastpage}
+
+% --- Encoding & Fonts ---
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[euler]{textgreek}
+
+% --- Date & Time ---
+\RequirePackage[showzone=false, showseconds=false]{datetime2}
+\RequirePackage{advdate}
+
+% --- Math Packages ---
+\RequirePackage{amsmath}
+\RequirePackage{mathtools} % Modern extension to amsmath
+\RequirePackage{amssymb}
+\RequirePackage{xfrac}
+
+% --- Physics & SI Units ---
+\RequirePackage{physics}   
+\RequirePackage{siunitx}   
+
+% Suppress siunitx physics notice & alias \qty to \SI
+\ExplSyntaxOn
+\msg_redirect_name:nnn { siunitx } { physics-pkg } { none }
+\ExplSyntaxOff
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+% --- Chemistry Packages ---
+\RequirePackage{chemfig}   % Molecular structure drawing
+\RequirePackage[version=4]{mhchem} % Modern chemical equations typesetting
+
+% --- Graphics & Plots ---
 \RequirePackage{graphicx}
 \RequirePackage{caption}
-%\RequirePackage{subcaption}
 \RequirePackage{subfig}
-\RequirePackage{amsmath}
-\RequirePackage[]{enumerate}
-\RequirePackage{amssymb}
-\RequirePackage{latexsym}
-\RequirePackage{enumitem}
 \RequirePackage{float}
-%\usepackage{wrapfig}
-\RequirePackage{caption}
-\RequirePackage{siunitx}
-\RequirePackage{listings} %For code in appendix
-\RequirePackage{xfrac}
-\RequirePackage{physics}
-\RequirePackage{lastpage}	
-\RequirePackage[euler]{textgreek}
+\RequirePackage{tikz}
 \RequirePackage{pgfplots}
-\RequirePackage{xstring}
-
-
-
-\RequirePackage{tabularx}
-
-\graphicspath{{Figures/}}
-\lstset
-{ %Formatting for code in appendix
-	language=c,
-	basicstyle=\footnotesize,
-	numbers=left,
-	stepnumber=1,
-	showstringspaces=false,
-	tabsize=1,
-	breaklines=true,
-	breakatwhitespace=false,
-}
-
-
-
-
-
-%%%%% To work on chemisty formula and structure 
-% Using chemfig to draw molecules (structural formulae)
-\RequirePackage{chemfig} 
-
-%Using mhchem to typeset chemical formulae and equations
-%Load mhchem using some package options
-\RequirePackage[version=4,arrows=pgf-filled,
-textfontname=sffamily,
-mathfontname=mathsf]{mhchem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
-\renewcommand{\thesubfigure}{\roman{subfigure}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\footer
-  %{\textit{\tiny {\deptNameShort{},~\institutionNameShort{}}}} % Left
-  {\tiny {\teacherUniqueID}}							% Left
-  {\tiny \examDate{}}                                 % Center
-  {\tiny Page \thepage\ of \pageref{LastPage}}       % Right
-
-
-
+\RequirePackage{circuitikz}
 
 \usetikzlibrary{decorations.pathreplacing}
+\pgfplotsset{compat=1.18} % Recommended pgfplots compatibility setting
+
+% --- Tables ---
+\RequirePackage{tabularx}
+\RequirePackage{multirow}
+
+% --- Lists & Formatting ---
+\RequirePackage{enumitem}  % Clean list customization
+
+% --- Code & Verbatim ---
+\RequirePackage{listings}
+\RequirePackage{fancyvrb}
+\RequirePackage{verbatim}
+
+% --- String Utilities ---
+\RequirePackage{xstring}
+
+% --- Settings & Configurations ---
+\graphicspath{{Figures/}}
 \captionsetup{figurename=Fig.}
+\renewcommand{\thesubfigure}{\roman{subfigure}}
 
+% Listings formatting for appendix
+\lstset{
+    language=C,
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false
+}
 
+% Exam page footer setup
+\footer
+  {\tiny \teacherUniqueID}                      % Left
+  {\tiny \examDate{}}                          % Center
+  {\tiny Page \thepage\ of \pageref{LastPage}} % Right
 
+% Exam package overrides
+\renewcommand{\subpartlabel}{(\thesubpart)}
 
-
-\renewcommand{\subpartlabel}{(\thesubpart)}  % wrap it in parentheses, no dot
-
-% Define an inline subparts environment
+% Custom inline subparts list
 \newlist{inlinesubparts}{enumerate*}{1}
 \setlist[inlinesubparts]{label=(\roman*), itemjoin={{, }}, itemjoin*={{, and }}}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% About displaying the marks
-% Show points in right margin
+% Points format in right margin
 \pointsinrightmargin
 \pointname{}
 \pointformat{\thepoints}
 
-% Command for breakdown parts without total point(bd = breakdown)
+% Command for breakdown parts without total point
 \newcommand{\bdpart}[1][]{%
   \IfSubStr{#1}{+}{%
-    \pointformat{#1}% No parentheses
-    \part[0]% Use 0 or placeholder
+    \pointformat{#1}%
+    \part[0]%
     \pointformat{\thepoints}%
   }{%
     \part[#1]%

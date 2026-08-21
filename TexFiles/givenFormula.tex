@@ -1,0 +1,66 @@
+%%%% The list of given formulas
+\begin{center}
+    \textbf{\large List of Relevant Equations}
+\end{center}
+
+\begin{gather*}
+% Equation 1: Component Transformation
+\begin{bmatrix}
+A_r \\
+A_{\theta} \\
+A_{\phi}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sin\theta \cos\phi & \sin\theta \sin\phi & \cos\theta \\
+\cos\theta \cos\phi & \cos\theta \sin\phi & -\sin\theta \\
+-\sin\phi & \cos\phi & 0
+\end{bmatrix}
+\begin{bmatrix}
+A_x \\
+A_y \\
+A_z
+\end{bmatrix} \\[1.8em]
+% Equation 2: Curl Determinant Form
+\nabla \times \mathbf{A}
+=
+\frac{1}{r \sin\theta}
+\begin{vmatrix}
+\hat{r} & r \hat{\theta} & r \sin\theta \hat{\phi} \\[0.4em]
+\dfrac{\partial}{\partial r} & \dfrac{\partial}{\partial \theta} & \dfrac{\partial}{\partial \phi} \\[0.6em]
+A_r & r A_\theta & r \sin\theta A_\phi
+\end{vmatrix} \\[1.8em]
+% Equation 3: Curl Expansion
+\begin{aligned}
+\nabla \times \mathbf{A}
+&= \frac{1}{r \sin\theta} \Bigg[
+  \hat{r} \left(
+    \frac{\partial}{\partial \theta}(\sin\theta A_\phi) - \frac{\partial A_\theta}{\partial \phi}
+  \right)
+  + \hat{\theta} \left(
+    \frac{1}{\sin\theta}\frac{\partial A_r}{\partial \phi} - \frac{\partial}{\partial r}(r A_\phi)
+  \right) \\
+&\qquad\qquad
+  + \hat{\phi} \left(
+    \frac{\partial}{\partial r}(r A_\theta) - \frac{\partial A_r}{\partial \theta}
+  \right)
+\Bigg]
+\end{aligned} \\[1.8em]
+% Equation 4: Unit Vector Transformation
+\begin{bmatrix}
+a_x \\
+a_y \\
+a_z
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sin\theta \cos\phi & \cos\theta \cos\phi & -\sin\phi \\
+\sin\theta \sin\phi & \cos\theta \sin\phi & \cos\phi \\
+\cos\theta           & -\sin\theta          & 0
+\end{bmatrix}
+\begin{bmatrix}
+a_r \\
+a_{\theta} \\
+a_{\phi}
+\end{bmatrix}
+\end{gather*}
