@@ -5,7 +5,8 @@
 \LoadClass[legalpaper, 11pt, addpoints]{exam}
 
 % --- Page Geometry & Layout ---
-\RequirePackage[top=0.8in, bottom=1.6cm, left=1in, right=1in]{geometry}
+% Adjusted footskip to 1.2cm to push it slightly further down but keep it fully visible
+\RequirePackage[top=0.8in, bottom=1.6cm, left=1in, right=1in, footskip=1.2cm]{geometry}
 \RequirePackage{changepage}
 \RequirePackage{multicol}
 \RequirePackage{lastpage}
