@@ -5,10 +5,18 @@
 \question 
 \begin{parts} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-\part[4]Determine \(I_{BQ}\), \(I_{CQ}\), \(V_{CEQ}\), \(V_B\), \(V_C\) and \(V_{BC}\) for the fixed-bias configuration shown in Fig.~\ref{fig:ckt-bjt-fixed-bias}. 
-	
+\part[6] An Inverse Definite Minimum Time (IDMT) overcurrent relay is connected to a \qty[parse-numbers=false]{400/5}{\ampere} Current Transformer (CT) with a Plug Setting (PS) of $125\%$. The characteristic curve for $\text{TMS} = 1.0$ is shown in Fig.~\ref{fig:graph}. If a symmetrical fault current of \qty{5000}{\ampere} flows through the primary side, calculate:
+
+\begin{subparts}
+    \subpart The Plug Setting Multiplier ($\text{PSM}$) of the relay.
+    \subpart The operating time of the relay for $\text{TMS} = 0.4$.
+    \subpart The required $\text{TMS}$ setting if the relay must operate in $1.8\text{ seconds}$.
+\end{subparts}
+
+
 \begin{figure}[H]
 \centering
+\resizebox{0.5\textwidth}{!}{% Adjust width (e.g., 0.6\textwidth, 10cm, etc.) as needed
 \begin{tikzpicture}
 \begin{axis}[
     width=10cm,
@@ -49,29 +57,33 @@
 \addplot[only marks, mark=*, mark size=2.5pt] coordinates {(10,3)};
 
 \end{axis}
-\end{tikzpicture}
-\caption{}
+\end{tikzpicture}%
+}
+\caption{IDMT Overcurrent Relay Characteristic Curve}
 \label{fig:graph}
 \end{figure}
 
 
 
 \begin{solution}
+\textbf{(a) Plug Setting Multiplier ($\text{PSM}$):}
+$$\text{Pick-up Current} = I_{\text{pickup}} = 5\text{ A} \times 1.25 = 6.25\text{ A}$$
+$$\text{Secondary Fault Current} = I_{\text{sec}} = 5000\text{ A} \times \left(\frac{5}{400}\right) = 62.5\text{ A}$$
+$$\text{PSM} = \frac{I_{\text{sec}}}{I_{\text{pickup}}} = \frac{62.5\text{ A}}{6.25\text{ A}} = 10$$
 
+\textbf{(b) Operating time for $\text{TMS} = 0.4$:}
+From Fig.~\ref{fig:graph}, at $\text{PSM} = 10$, the operating time at $\text{TMS} = 1.0$ is $t_{1.0} = 3.0\text{ s}$.
+$$t = t_{1.0} \times \text{TMS} = 3.0\text{ s} \times 0.4 = 1.2\text{ s}$$
 
+\textbf{(c) Required $\text{TMS}$ for $t = 1.8\text{ s}$:}
+$$\text{TMS} = \frac{t}{t_{1.0}} = \frac{1.8\text{ s}}{3.0\text{ s}} = 0.6$$
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
-\part[2]Determine the saturation level for the network of Fig.~\ref{fig:ckt-bjt-fixed-bias}.
-
-\begin{solution}
-
-
-\end{solution}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\part[4]For the emitter bias network of Fig.~\ref{fig:ckt-bjt-emitter-bias} determine \(I_{B}\), \(I_{C}\), \(V_{CE}\), \(V_C\), \(V_E\) and \(V_B\) for the fixed-bias configuration shown in 
+\part[4]For the emitter bias network of Fig.~\ref{fig:ckt-bjt-emitter-bias} determine \(I_{B}\), \(I_{C}\), \(V_{CE}\), \(V_C\), \(V_E\) and \(V_B\).
 
 \begin{figure}[H]
 \centering
+\resizebox{0.6\textwidth}{!}{% Adjust width (e.g., 0.6\textwidth, 10cm, etc.) as needed
 \begin{tikzpicture}
 	% Paths, nodes and wires:
 	\draw node[npn] (N1) at (6, 4) {} node[anchor=west] at ([xshift=0.88cm]N1.east){$\beta = 50$};
@@ -98,7 +110,7 @@
 	\draw node[tlground] at (8, 1) {};
 	\draw node[circ] at (6, 3.23) {};
 \end{tikzpicture}
-
+}
 \caption{}
 \label{fig:ckt-bjt-emitter-bias}
 
