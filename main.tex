@@ -1,9 +1,10 @@
 \documentclass{setupFiles/final_exam_sust}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% About prining the solution
+%%%%% About printing the solution and Table of Specifications (TOS)
 
 % \printanswers   %% Uncomment this if you want to print the solution
+ \printTOStrue   %% Uncomment this to include the TOS page at the end [3]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,10 +34,14 @@
 
 
 
-\newcommand{\teacherName}{Md Rasedujjaman}
+\newcommand{\teacherName}{Name of question setter}
 \newcommand{\teacherUniqueID}{N07R28S33}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Setup the internal switch for conditional TOS processing
+\makeatletter
+\@ifundefined{ifprintTOS}{\newif\ifprintTOS}{}
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
@@ -55,18 +60,21 @@
 	
 
 
-\input{TexFiles/Q1}  	 
-\input{TexFiles/Q2}  	
-\input{TexFiles/Q3}  	
+\input{TexFiles/Q1}  	% Done	(CT signals, the basics) 
+\input{TexFiles/Q2}  	% Done  (DT signals and systems sampling theorem}
+\input{TexFiles/Q3}  	% Done  (LTI system and application of dirac)
+
+
+
 
 \begin{center}
 \textbf{OR}\\[6pt]
 \end{center}	
 
-\input{TexFiles/Q3OR}	
+\input{TexFiles/Q3OR}	% Done
 
 %%%%%%%%%%%%%% Part-B %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
+% \newpage
 %\pagebreak
 
 \begin{center}
@@ -74,9 +82,10 @@
      \textit{[\specialInstruction{}]}
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{TexFiles/Q4}  	
-\input{TexFiles/Q5}  	
-\input{TexFiles/Q6}  	
+\input{TexFiles/Q4}  	% Done (Convolution)
+\cleardoublepage
+\input{TexFiles/Q5}  	% Done (Fourier series and Fourier transform)
+\input{TexFiles/Q6}  	% Not done (Laplace transform and network theorem)
 
 %\newpage
 
@@ -84,21 +93,32 @@
 \textbf{OR}\\[6pt]
 \end{center}	
 
-\input{TexFiles/Q6OR}	
+\input{TexFiles/Q6OR}	% Not done 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{questions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% If you want to provide some formuls
+%% If you want to provide some formulas
 \vfill
-\input{TexFiles/givenFormula}
+% \input{TexFiles/givenFormula}
 
 
 \ifprintanswers
 	%Stuff to appear only when answers \textbf{are} being printed.
 \else
 	%Stuff to appear only when answers \textbf{are not} being printed.
+\fi
+
+% Mark the end of active exam questions for page numbering calculation
+\label{endofquestions}
+
+% Conditional compilation block for Table of Specifications
+\ifprintTOS
+    % Generate the table of specification
+    \cleardoublepage
+    \thispagestyle{empty} % Removes the header and footer for this page only [3]
+    \input{TexFiles/tos}
 \fi
 
 \end{document}

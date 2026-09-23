@@ -9,7 +9,10 @@
 \RequirePackage[top=0.8in, bottom=1.6cm, left=1in, right=1in, footskip=1.2cm]{geometry}
 \RequirePackage{changepage}
 \RequirePackage{multicol}
-\RequirePackage{lastpage}
+\RequirePackage{spreadtab}
+\RequirePackage{multirow}
+\RequirePackage{array}
+
 
 % --- Encoding & Fonts ---
 \RequirePackage[utf8]{inputenc}
@@ -42,7 +45,7 @@
 % --- Graphics & Plots ---
 \RequirePackage{graphicx}
 \RequirePackage{caption}
-\RequirePackage{subfig}
+\RequirePackage{subcaption} % Replaced subfig with subcaption
 \RequirePackage{float}
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
@@ -69,6 +72,8 @@
 % --- Settings & Configurations ---
 \graphicspath{{Figures/}}
 \captionsetup{figurename=Fig.}
+% Adjusted subcaption configuration
+\captionsetup[subfigure]{labelformat=simple, labelsep=space}
 \renewcommand{\thesubfigure}{\roman{subfigure}}
 
 % Listings formatting for appendix
@@ -83,11 +88,23 @@
     breakatwhitespace=false
 }
 
-% Exam page footer setup
+% --- TOS Conditional Switch Declaration ---
+% This declares the switch globally so you can use \printTOStrue in the main file safely
+\newif\ifprintTOS
+
+% --- Exam page footer setup ---
+% Conditional logic handles pages gracefully whether TOS is enabled or disabled
 \footer
-  {\tiny \teacherUniqueID}                      % Left
-  {\tiny \examDate{}}                          % Center
-  {\tiny Page \thepage\ of \pageref{LastPage}} % Right
+  {\iflastpage{}{\tiny \teacherUniqueID}}                      % Left
+  {\iflastpage{}{\tiny \examDate{}}}                          % Center
+  {\iflastpage{}{%
+     \tiny Page \thepage\ of %
+     \ifprintTOS
+       \pageref{endofquestions}% Uses label total if TOS is attached at the end
+     \else
+       \numpages
+     \fi
+  }} % Right
 
 % Exam package overrides
 \renewcommand{\subpartlabel}{(\thesubpart)}
