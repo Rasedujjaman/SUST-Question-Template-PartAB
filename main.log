@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.6)  24 SEP 2026 09:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.6)  24 SEP 2026 10:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1446,46 +1446,63 @@ zlibraryfpu.code.tex)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/cir
+cuits/tikzlibrarycircuits.logic.US.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/cir
+cuits/tikzlibrarycircuits.logic.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/cir
+cuits/tikzlibrarycircuits.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarydecorations.markings.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
+decorations.markings.code.tex))
+\tikz@lib@circ@count=\count438
+\tikzcircuitssizeunit=\dimen366
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/circuits/pgflib
+raryshapes.gates.logic.US.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/circuits/pgflib
+raryshapes.gates.logic.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen366
-\TX@old@table=\dimen367
-\TX@old@col=\dimen368
-\TX@target=\dimen369
-\TX@delta=\dimen370
-\TX@cols=\count438
+\TX@col@width=\dimen367
+\TX@old@table=\dimen368
+\TX@old@col=\dimen369
+\TX@target=\dimen370
+\TX@delta=\dimen371
+\TX@cols=\count439
 \TX@ftn=\toks54
 )
 (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip99
-\enit@outerparindent=\dimen371
+\enit@outerparindent=\dimen372
 \enit@toks=\toks55
 \enit@inbox=\box136
-\enit@count@id=\count439
-\enitdp@description=\count440
+\enit@count@id=\count440
+\enitdp@description=\count441
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count441
+\lst@mode=\count442
 \lst@gtempboxa=\box137
 \lst@token=\toks56
-\lst@length=\count442
-\lst@currlwidth=\dimen372
-\lst@column=\count443
-\lst@pos=\count444
-\lst@lostspace=\dimen373
-\lst@width=\dimen374
-\lst@newlines=\count445
-\lst@lineno=\count446
-\lst@maxwidth=\dimen375
+\lst@length=\count443
+\lst@currlwidth=\dimen373
+\lst@column=\count444
+\lst@pos=\count445
+\lst@lostspace=\dimen374
+\lst@width=\dimen375
+\lst@newlines=\count446
+\lst@lineno=\count447
+\lst@maxwidth=\dimen376
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-\c@lstnumber=\count447
-\lst@skipnumbers=\count448
+\c@lstnumber=\count448
+\lst@skipnumbers=\count449
 \lst@framebox=\box138
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -1501,11 +1518,11 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
 (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2026/04/16 4.6a verbatim text (tvz,hv)
-\FV@CodeLineNo=\count449
+\FV@CodeLineNo=\count450
 \FV@InFile=\read3
 \FV@TabBox=\box139
-\c@FancyVerbLine=\count450
-\FV@StepNumber=\count451
+\c@FancyVerbLine=\count451
+\FV@StepNumber=\count452
 \FV@OutFile=\write4
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
@@ -1515,7 +1532,7 @@ Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
 \verbatim@in@stream=\read4
 )
 Package caption Info: Option `figurename' requires the `newfloat' package on in
-put line 74.
+put line 75.
 
 (/usr/share/texlive/texmf-dist/tex/latex/newfloat/newfloat.sty
 Package: newfloat 2023/10/01 v1.2 Defining new floating environments (AR)
@@ -1526,8 +1543,8 @@ File: lstlang1.sty 2025/11/14 1.11b listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 )
-\c@inlinesubpartsi=\count452
-\enitdp@inlinesubparts=\count453
+\c@inlinesubpartsi=\count453
+\enitdp@inlinesubparts=\count454
 )
 Package translations Info: No language package found. I am going to use `englis
 h' as default language. on input line 46.
@@ -1611,16 +1628,16 @@ LaTeX Font Info:    ... okay on input line 46.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count454
-\scratchdimen=\dimen376
+\scratchcounter=\count455
+\scratchdimen=\dimen377
 \scratchbox=\box140
-\nofMPsegments=\count455
-\nofMParguments=\count456
+\nofMPsegments=\count456
+\nofMParguments=\count457
 \everyMPshowfont=\toks59
-\MPscratchCnt=\count457
-\MPscratchDim=\dimen377
-\MPnumerator=\count458
-\makeMPintoPDFobject=\count459
+\MPscratchCnt=\count458
+\MPscratchDim=\dimen378
+\MPnumerator=\count459
+\makeMPintoPDFobject=\count460
 \everyMPtoPDFconversion=\toks60
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1649,7 +1666,7 @@ Package caption Info: End \AtBeginDocument code.
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-\c@lstlisting=\count460
+\c@lstlisting=\count461
 Package newfloat Info: `float' package detected.
 (./TexFiles/examHeader.tex) (./TexFiles/Q1.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
@@ -1717,10 +1734,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 62375 strings out of 467356
- 1616090 string characters out of 5418692
- 2536783 words of memory out of 6000000
- 90791 multiletter control sequences out of 15000+600000
+ 62916 strings out of 467356
+ 1633855 string characters out of 5418692
+ 2560633 words of memory out of 6000000
+ 91309 multiletter control sequences out of 15000+600000
  637810 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  114i,15n,132p,728b,2382s stack positions out of 10000i,1000n,20000p,200000b,200000s

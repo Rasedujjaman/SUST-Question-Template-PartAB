@@ -50,6 +50,7 @@
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
 \RequirePackage{circuitikz}
+\usetikzlibrary{circuits.logic.US}
 
 \usetikzlibrary{decorations.pathreplacing}
 \pgfplotsset{compat=1.18} % Recommended pgfplots compatibility setting
@@ -93,18 +94,18 @@
 \newif\ifprintTOS
 
 % --- Exam page footer setup ---
-% Conditional logic handles pages gracefully whether TOS is enabled or disabled
+% Removed \iflastpage wrapper so the footer prints universally on question pages.
+% (The TOS page still hides its footer via \thispagestyle{empty} in the main tex file)
 \footer
-  {\iflastpage{}{\tiny \teacherUniqueID}}                      % Left
-  {\iflastpage{}{\tiny \examDate{}}}                          % Center
-  {\iflastpage{}{%
-     \tiny Page \thepage\ of %
+  {\tiny \teacherUniqueID}                                    % Left
+  {\tiny \examDate{}}                                         % Center
+  {\tiny Page \thepage\ of %                                  % Right
      \ifprintTOS
        \pageref{endofquestions}% Uses label total if TOS is attached at the end
      \else
        \numpages
      \fi
-  }} % Right
+  }
 
 % Exam package overrides
 \renewcommand{\subpartlabel}{(\thesubpart)}
