@@ -79,13 +79,15 @@
 \noindent
 {\small
 \begin{minipage}[b]{0.5\textwidth}
-	\textbf{Date:} \ifnum\day<10 0\fi\number\day/\ifnum\month<10 0\fi\number\month/\number\year\\[4pt]
-	\textbf{SUST, SYLHET}\\[6pt]
+	SUST, Sylhet, Bangladesh\\[4pt]
+	\number\day~\ifcase\month\or
+	January\or February\or March\or April\or May\or June\or
+	July\or August\or September\or October\or November\or December\fi~\number\year\\[6pt]
 \end{minipage}%
 \begin{minipage}[b]{0.5\textwidth}
 	\raggedleft
 	\rule{4.5cm}{0.4pt}\\[4pt]
-	\textbf{Signature}\\[6pt]
+	\textbf{Signature}\\[4pt]
 	\textbf{Name:~\teacherName}
 \end{minipage}%
 }
