@@ -41,6 +41,10 @@
 \RequirePackage{mathtools} % Extension to amsmath (fixes bugs, adds tools)
 \RequirePackage{amssymb}   % Mathematical symbols (including \checkmark)
 \RequirePackage{xfrac}     % Enables slanted fractions (\sfrac)
+\RequirePackage{bm}        % Access to bold math symbols (e.g., vectors and matrices)
+
+
+
 
 % Physics & Units
 \RequirePackage{physics}   % Macros for derivatives, matrices, bras/kets
