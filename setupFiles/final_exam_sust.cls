@@ -118,6 +118,102 @@
 % Declares a switch globally to conditionally print the Table of Specifications (TOS)
 \newif\ifprintTOS
 
+% --- TOS automatic totals (no Python needed) ---
+% In TexFiles/tos.tex write each row as
+%   \tosrow{Q.No.}{Marks}{CO}{Remember}{Understand}{Apply}{Analyze}{Evaluate}{Create}
+% (leave a level empty, e.g. {}, if it has no marks), use \tosgap for an empty
+% spacer row, and put \tostotals just before \end{tabular}. The Total row, the
+% "% in each level" row and the "% Marks in Major levels" row are computed
+% automatically at compile time. A warning is written to the log if a row's
+% Marks value differs from the sum of its Bloom-level marks.
+\ExplSyntaxOn
+\fp_new:N \g__tos_marks_fp
+\fp_new:N \g__tos_bloom_fp
+\fp_new:N \g__tos_i_fp \fp_new:N \g__tos_ii_fp \fp_new:N \g__tos_iii_fp
+\fp_new:N \g__tos_iv_fp \fp_new:N \g__tos_v_fp \fp_new:N \g__tos_vi_fp
+\fp_new:N \l__tos_row_fp
+\cs_new_protected:Npn \__tos_add:Nn #1#2
+  {
+    \tl_if_blank:nF {#2}
+      {
+        \fp_gadd:Nn #1 {#2}
+        \fp_gadd:Nn \g__tos_bloom_fp {#2}
+        \fp_add:Nn \l__tos_row_fp {#2}
+      }
+  }
+\cs_new_protected:Npn \__tos_accumulate:nnnnnnnn #1#2#3#4#5#6#7#8
+  {
+    \fp_zero:N \l__tos_row_fp
+    \tl_if_blank:nF {#2} { \fp_gadd:Nn \g__tos_marks_fp {#2} }
+    \__tos_add:Nn \g__tos_i_fp   {#3}
+    \__tos_add:Nn \g__tos_ii_fp  {#4}
+    \__tos_add:Nn \g__tos_iii_fp {#5}
+    \__tos_add:Nn \g__tos_iv_fp  {#6}
+    \__tos_add:Nn \g__tos_v_fp   {#7}
+    \__tos_add:Nn \g__tos_vi_fp  {#8}
+    \tl_if_blank:nF {#2}
+      {
+        \fp_compare:nNnF { \l__tos_row_fp } = {#2}
+          {
+            \use:e
+              {
+                \exp_not:N \msg_warning:nnnnn { final_exam_sust } { tos-mismatch }
+                  { \tl_trim_spaces:n {#1} } { \tl_trim_spaces:n {#2} }
+                  { \fp_use:N \l__tos_row_fp }
+              }
+          }
+      }
+  }
+\msg_new:nnn { final_exam_sust } { tos-mismatch }
+  { TOS~row~'#1':~Marks~=~#2~but~Bloom~levels~add~up~to~#3. }
+% Expandable helpers used inside \tostotals
+\cs_new:Npn \__tos_pct:N #1
+  {
+    \fp_compare:nNnTF { \g__tos_bloom_fp } > { 0 }
+      { \fp_eval:n { 100 * #1 / \g__tos_bloom_fp } } { 0 }
+  }
+\cs_new:Npn \__tos_major_i:
+  { \fp_eval:n { \g__tos_i_fp + \g__tos_ii_fp + \g__tos_iii_fp } }
+\cs_new:Npn \__tos_major_ii:
+  { \fp_eval:n { \g__tos_iv_fp + \g__tos_v_fp + \g__tos_vi_fp } }
+\cs_new_eq:NN \tos@accumulate \__tos_accumulate:nnnnnnnn
+\cs_new:Npn \tos@val #1 { \fp_use:c { g__tos_#1_fp } }
+\cs_new:Npn \tos@pct #1 { \exp_args:Nc \__tos_pct:N { g__tos_#1_fp } }
+\cs_new:Npn \tos@majorI  { \__tos_pct:N \__tos_major_i: }
+\cs_new:Npn \tos@majorII { \__tos_pct:N \__tos_major_ii: }
+% Expandable "two decimals" formatter, e.g. 20 -> 20.00, 8.333 -> 8.33
+\cs_new:Npn \tos@fmtpct #1
+  { \exp_args:Ne \__tos_fmt:n { \fp_eval:n { round(#1, 2) } } }
+\cs_new:Npn \__tos_fmt:n #1
+  {
+    \fp_eval:n { trunc(#1) } .
+    \int_compare:nNnT { \fp_eval:n { round((#1 - trunc(#1)) * 100) } } < { 10 } { 0 }
+    \fp_eval:n { round((#1 - trunc(#1)) * 100) }
+  }
+\ExplSyntaxOff
+\makeatletter
+
+% One data row of the TOS table
+\newcommand{\tosrow}[9]{%
+  #1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9%
+  \tos@accumulate{#1}{#2}{#4}{#5}{#6}{#7}{#8}{#9}%
+  \\ \hline}
+% An empty spacer row
+\newcommand{\tosgap}{ & & & & & & & & \\ \hline}
+% The three automatically calculated summary rows
+\newcommand{\tostotals}{%
+  \textbf{Total} & \textbf{\tos@val{marks}} & &
+    \textbf{\tos@val{i}} & \textbf{\tos@val{ii}} & \textbf{\tos@val{iii}} &
+    \textbf{\tos@val{iv}} & \textbf{\tos@val{v}} & \textbf{\tos@val{vi}} \\ \hline
+  \multicolumn{3}{|c|}{\textbf{Total \% in each level}} &
+    \textbf{\tos@fmtpct{\tos@pct{i}}} & \textbf{\tos@fmtpct{\tos@pct{ii}}} &
+    \textbf{\tos@fmtpct{\tos@pct{iii}}} & \textbf{\tos@fmtpct{\tos@pct{iv}}} &
+    \textbf{\tos@fmtpct{\tos@pct{v}}} & \textbf{\tos@fmtpct{\tos@pct{vi}}} \\ \hline
+  \multicolumn{3}{|c|}{\textbf{\% Marks in Major levels}} &
+    \multicolumn{3}{c|}{\textbf{\tos@fmtpct{\tos@majorI}}} &
+    \multicolumn{3}{c|}{\textbf{\tos@fmtpct{\tos@majorII}}} \\ \hline}
+\makeatother
+
 % Custom Footer Layout
 \footer
   {\tiny \teacherUniqueID} % Left: Teacher ID (must be defined in main tex)
